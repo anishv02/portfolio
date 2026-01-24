@@ -12,13 +12,25 @@
       box-sizing: border-box;
     }
 
+    :root{
+      /* Light theme variables */
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --text: #0f1721; /* primary text */
+      --muted: #6b7280; /* secondary text */
+      --accent-1: #ff004f;
+      --accent-2: #ff6b9d;
+      --card-border: rgba(15,23,33,0.06);
+      --glass: rgba(255,255,255,0.6);
+    }
+
     html {
       scroll-behavior: smooth;
     }
 
     body {
-      background: #0a0a0a;
-      color: #fff;
+      background: var(--bg);
+      color: var(--text);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
     }
@@ -31,7 +43,7 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: linear-gradient(45deg, #0a0a0a 0%, #1a0a1a 50%, #0a0a1a 100%);
+      background: linear-gradient(45deg, var(--bg) 0%, #eef2f7 50%, var(--bg) 100%);
     }
 
     .bg-animation::before {
@@ -39,7 +51,7 @@
       position: absolute;
       width: 200%;
       height: 200%;
-      background: radial-gradient(circle, rgba(255,0,79,0.1) 1px, transparent 1px);
+      background: radial-gradient(circle, rgba(255,0,79,0.06) 1px, transparent 1px);
       background-size: 50px 50px;
       animation: moveGrid 20s linear infinite;
     }
@@ -65,16 +77,16 @@
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(10, 10, 10, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(6px);
       z-index: 1000;
-      box-shadow: 0 5px 30px rgba(255, 0, 79, 0.1);
+      box-shadow: 0 6px 24px rgba(15,23,33,0.06);
     }
 
     .logo {
       font-size: 32px;
       font-weight: 700;
-      background: linear-gradient(135deg, #ff004f, #ff6b9d);
+      background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -87,7 +99,7 @@
     }
 
     nav ul li a {
-      color: #fff;
+      color: var(--text);
       text-decoration: none;
       font-size: 16px;
       font-weight: 500;
@@ -102,7 +114,7 @@
       left: 0;
       width: 0;
       height: 2px;
-      background: linear-gradient(90deg, #ff004f, #ff6b9d);
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
       transition: width 0.3s;
     }
 
@@ -149,7 +161,7 @@
 
     .header-text p {
       font-size: 20px;
-      color: #ff6b9d;
+      color: var(--accent-1);
       margin-bottom: 10px;
     }
 
@@ -168,7 +180,7 @@
 
     .header-text h2 {
       font-size: 28px;
-      color: #ababab;
+      color: var(--muted);
       margin-bottom: 30px;
       font-weight: 400;
     }
@@ -243,7 +255,7 @@
       font-size: 48px;
       margin-bottom: 60px;
       text-align: center;
-      background: linear-gradient(135deg, #fff, #ff6b9d);
+      background: linear-gradient(135deg, #111827, var(--accent-2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -259,7 +271,7 @@
     .about-text p {
       font-size: 18px;
       line-height: 1.8;
-      color: #ccc;
+      color: var(--muted);
       margin-bottom: 30px;
     }
 
@@ -271,27 +283,27 @@
     }
 
     .stat-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--surface);
       padding: 25px;
       border-radius: 15px;
-      border: 1px solid rgba(255, 0, 79, 0.2);
+      border: 1px solid var(--card-border);
       transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(15,23,33,0.04);
     }
 
     .stat-card:hover {
-      background: rgba(255, 0, 79, 0.1);
       transform: translateY(-5px);
-      border-color: #ff004f;
+      border-color: rgba(255,0,79,0.12);
     }
 
     .stat-card h3 {
       font-size: 36px;
-      color: #ff004f;
+      color: var(--accent-1);
       margin-bottom: 5px;
     }
 
     .stat-card p {
-      color: #ababab;
+      color: var(--muted);
       font-size: 14px;
       margin: 0;
     }
@@ -410,7 +422,7 @@
     }
 
     .experience-item ul li {
-      color: #ccc;
+      color: #090909;
       margin-bottom: 8px;
       padding-left: 20px;
       position: relative;
@@ -426,7 +438,7 @@
     /* Projects Section */
     #projects {
       padding: 100px 0;
-      background: rgba(0, 0, 0, 0.3);
+      /* background: rgba(0, 0, 0, 0.3); */
     }
 
     .projects-grid {
@@ -437,13 +449,14 @@
     }
 
     .project-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--surface);
       border-radius: 20px;
       padding: 30px;
-      border: 1px solid rgba(255, 0, 79, 0.2);
+      border: 1px solid var(--card-border);
       transition: all 0.3s;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 30px rgba(15,23,33,0.04);
     }
 
     .project-card::before {
@@ -471,17 +484,17 @@
     .project-card h3 {
       font-size: 24px;
       margin-bottom: 15px;
-      color: #fff;
+      color: var(--text);
     }
 
     .project-card .tech-stack {
-      color: #ff6b9d;
+      color: var(--accent-2);
       font-size: 14px;
       margin-bottom: 15px;
     }
 
     .project-card p {
-      color: #ccc;
+      color: var(--muted);
       line-height: 1.6;
       margin-bottom: 10px;
     }
@@ -492,7 +505,7 @@
     }
 
     .project-card ul li {
-      color: #ababab;
+      color: var(--muted);
       margin-bottom: 8px;
       padding-left: 20px;
       position: relative;
@@ -503,7 +516,7 @@
       content: '✓';
       position: absolute;
       left: 0;
-      color: #ff004f;
+      color: var(--accent-1);
     }
 
     /* Awards Section */
@@ -519,15 +532,15 @@
     }
 
     .award-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: var(--surface);
       padding: 30px;
       border-radius: 15px;
-      border: 1px solid rgba(255, 0, 79, 0.2);
+      border: 1px solid var(--card-border);
       transition: all 0.3s;
+      box-shadow: 0 8px 30px rgba(15,23,33,0.04);
     }
 
     .award-card:hover {
-      background: rgba(255, 0, 79, 0.1);
       transform: translateY(-5px);
     }
 
@@ -537,19 +550,19 @@
     }
 
     .award-card h3 {
-      color: #ff004f;
+      color: var(--accent-1);
       margin-bottom: 10px;
     }
 
     .award-card p {
-      color: #ccc;
+      color: var(--muted);
       line-height: 1.6;
     }
 
     /* Contact Section */
     #contact {
       padding: 100px 0;
-      background: rgba(0, 0, 0, 0.3);
+      /* background: rgba(0, 0, 0, 0.3); */
     }
 
     .contact-content {
@@ -569,7 +582,7 @@
       align-items: center;
       gap: 15px;
       margin-bottom: 25px;
-      color: #ccc;
+      color: var(--muted);
       transition: all 0.3s;
     }
 
@@ -580,7 +593,7 @@
 
     .contact-item i {
       font-size: 24px;
-      color: #ff004f;
+      color: var(--accent-1);
     }
 
     .social-links {
@@ -589,18 +602,19 @@
       margin-top: 30px;
     }
 
+
     .social-links a {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(15,23,33,0.04);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: var(--text);
       font-size: 20px;
       transition: all 0.3s;
-      border: 1px solid rgba(255, 0, 79, 0.2);
+      border: 1px solid var(--card-border);
     }
 
     .social-links a:hover {
@@ -609,15 +623,16 @@
       box-shadow: 0 10px 20px rgba(255, 0, 79, 0.3);
     }
 
+
     .contact-form input,
     .contact-form textarea {
       width: 100%;
       padding: 15px 20px;
       margin-bottom: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 0, 79, 0.2);
+      background: var(--surface);
+      border: 1px solid var(--card-border);
       border-radius: 10px;
-      color: #fff;
+      color: var(--text);
       font-size: 16px;
       transition: all 0.3s;
     }
@@ -625,8 +640,8 @@
     .contact-form input:focus,
     .contact-form textarea:focus {
       outline: none;
-      border-color: #ff004f;
-      background: rgba(255, 0, 79, 0.1);
+      border-color: rgba(255,0,79,0.16);
+      background: #fff;
     }
 
     .contact-form textarea {
@@ -656,8 +671,8 @@
     footer {
       text-align: center;
       padding: 30px 0;
-      background: rgba(0, 0, 0, 0.5);
-      color: #ababab;
+      background: transparent;
+      color: var(--muted);
     }
 
     /* Responsive */
@@ -743,11 +758,11 @@
           <p>👋 Welcome to my portfolio</p>
           <h1>Hi, I'm <span>Anishv Rawal</span></h1>
           <h2>FullStack Web Developer & Tech Enthusiast</h2>
-          <p style="color: #ccc; font-size: 18px; margin: 20px 0;">Results-oriented FullStack Web Developer with 2+ years of experience building scalable, user-centric web applications using React and modern JavaScript frameworks.</p>
+          <p style="color: #090909; font-size: 18px; margin: 20px 0;">Results-oriented FullStack Web Developer with 2+ years of experience building scalable, user-centric web applications using React and modern JavaScript frameworks.</p>
           <div class="cta-buttons">
-            <a href="#contact" class="btn btn-primary">Get In Touch</a>
-            <a href="#projects" class="btn btn-secondary">View Projects</a>
-            <a href="Anishv-Rawal-2025.pdf" class="btn btn-secondary" target="_blank" download>Download Resume</a>
+            <a href="#contact" class="btn btn-primary" style="color: #000;">Get In Touch</a>
+            <a href="#projects" class="btn btn-secondary" style="color: #000;">View Projects</a>
+            <a href="Anishv-Rawal-2025.pdf" class="btn btn-secondary" target="_blank" download style="color: #000;">Download Resume</a>
           </div>
         </div>
         <div class="header-photo">
@@ -763,8 +778,10 @@
       <h2 class="section-title">About Me</h2>
       <div class="about-content">
         <div class="about-text">
-          <p>I'm a Frontend Developer at Tata Consultancy Services, working on enterprise-level applications for Morgan Stanley. I specialize in building intuitive user interfaces with React.js and integrating REST APIs to deliver seamless digital experiences.</p>
-          <p>My journey combines technical expertise with a passion for teaching - I've mentored 150+ students in Python and Machine Learning, helping them build strong programming foundations.</p>
+          <p>Software Engineer with 2+ years of experience building web applications and APIs using Python, FastAPI, and React. Strong understanding of
+RESTful API design, request/ response validation, authentication, and database integration. Experienced in working with enterprise systems,
+collaborating with cross-functional teams, and delivering production-ready solutions. Recently upskilled in backend development with FastAPI
+to build scalable and high-performance services.</p>
           
           <div class="stats-grid">
             <div class="stat-card">
@@ -796,10 +813,18 @@
           <div id="skills" class="tab-content active">
             <h3 style="margin-bottom: 20px; color: #ff004f;">Technical Skills</h3>
             <div class="skills-grid">
+               <div class="skill-item">
+                <i class="fa-brands fa-python"></i>
+                <p>Python</p>
+              </div>
               <div class="skill-item">
                 <i class="fa-brands fa-react"></i>
                 <p>React.js</p>
               </div>
+              <div class="skill-item">
+              <i class="fa-solid fa-server"></i>
+              <p>FastAPI</p>
+            </div>
               <div class="skill-item">
                 <i class="fa-brands fa-js"></i>
                 <p>JavaScript</p>
@@ -812,21 +837,21 @@
                 <i class="fa-brands fa-css3-alt"></i>
                 <p>CSS3</p>
               </div>
-              <div class="skill-item">
-                <i class="fa-brands fa-python"></i>
-                <p>Python</p>
-              </div>
-              <div class="skill-item">
-                <i class="fa-brands fa-node"></i>
-                <p>Node.js</p>
-              </div>
-              <div class="skill-item">
-                <i class="fa-solid fa-database"></i>
-                <p>MongoDB</p>
-              </div>
+            <div class="skill-item">
+              <i class="fa-solid fa-database"></i>
+              <p>PostgreSQL</p>
+            </div>
+            <div class="skill-item">
+              <i class="fa-solid fa-database"></i>
+              <p>MySQL</p>
+            </div>
               <div class="skill-item">
                 <i class="fa-brands fa-git-alt"></i>
                 <p>Git</p>
+              </div>
+               <div class="skill-item">
+                <i class="fa-brands fa-git-alt"></i>
+                <p>BitBucket</p>
               </div>
             </div>
             <p style="margin-top: 20px; color: #ababab;"><strong>Additional:</strong> TypeScript, React Native, Tailwind CSS, Material UI, Jest, REST APIs, Jira, Agile</p>
@@ -1016,7 +1041,7 @@
   </section>
   <!-- Footer -->
   <footer>
-    <p>&copy; 2024 Anishv Rawal. All rights reserved.</p>
+    <p>&copy; 2026 Anishv Rawal. All rights reserved.</p>
   </footer>
   <script>
     function openTab(tabName) {
